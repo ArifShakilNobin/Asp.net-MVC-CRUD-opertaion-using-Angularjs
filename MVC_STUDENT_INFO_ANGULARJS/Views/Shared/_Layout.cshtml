@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html ng-app="studentAngularApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/toaster.min.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        @@media (min-width: 768px) {
+
+            body {
+                overflow: hidden;
+            }
+
+            #wrapper {
+                min-height: 100%;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block;
+            }
+
+            #main-wrapper {
+                height: 100%;
+                overflow-y: auto;
+                padding: 50px 0 0px 0;
+            }
+
+            #main {
+                position: relative;
+                height: 100%;
+                overflow-y: hidden;
+                padding: 0 15px;
+            }
+
+            #sidebar-wrapper {
+                height: 100%;
+                padding: 50px 0 50px 0; /* pad top and bottom by height of header and footer */
+                position: fixed;
+                border-right: 1px solid gray;
+            }
+
+            .col-sm-2 {
+                width: 14.666667%;
+            }
+
+            #sidebar {
+                position: relative;
+                height: 100%;
+                overflow-y: auto;
+            }
+
+            .footer {
+                background-color: #efefef;
+                bottom: 0;
+                height: 50px;
+                position: fixed;
+                padding-top: 10px;
+            }
+        }
+
+        .btn-info {
+            color: #ffffff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            position: relative;
+            top: 50px;
+            left: 189px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div id="header" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="glyphicon glyphicon-chevron-down"></i>
+            </button>
+
+            @*<button class="btn pull-left btn btn-info" position="relative" top="100px" id="menu-toggle">Toggle Menu</button>*@
+
+
+            <a class="navbar-brand" href="#">
+                Student Information System
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse">
+            <ul class="nav navbar-nav"></ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.ActionLink("Login", "Login")
+                    </ul>
+
+                </li>
+
+
+
+            </ul>
+
+
+        </nav>
+    </div>
+    <div id="wrapper">
+        <div id="sidebar-wrapper" class="col-sm-2">
+            <div id="sidebar">
+                <ul class="nav list-group">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dashboard<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @Html.ActionLink("About", "About")
+                        </ul>
+                    </li>
+
+                    <li>
+                            @Html.ActionLink("Student", "Index")
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <div id="main-wrapper" class="col-sm-10 pull-right">
+        <div id="main">
+
+            <div class="container body-content">
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+        <footer></footer>
+
+    </div>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+    <script src="~/Scripts/AngularJS/angular.min.js"></script>
+    <script src="~/CustomScripts/AngularJS/studentApp.js"></script>
+    <script src="~/CustomScripts/AngularJS/studentController.js"></script>
+    <script src="~/CustomScripts/AngularJS/studentService.js"></script>
+    <script src="~/Scripts/toaster.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
