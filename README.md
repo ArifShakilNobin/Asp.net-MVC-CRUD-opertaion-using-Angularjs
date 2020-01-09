@@ -39,3 +39,7 @@ $ cd asp-mvc-angularjs-crud
 
 ## License
 [MIT License](https://github.com/sumuongit/asp-mvc-angularjs-crud/blob/master/LICENSE)
+
+
+#Rdlc Report
+I use RDLC report using Asp.net MVC
